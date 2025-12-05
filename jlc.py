@@ -1230,16 +1230,12 @@ def push_summary():
         try:
             textSC3 = "\n\n".join(summary_logs)
             titleSC3 = title
-            desp = textSC3
             options = {"tags": "嘉立创|签到"}  # 可选参数，根据需求添加
-            
-            response = sc_send(serverchan3_sckey, titleSC3, desp, options)
-            
+            response = sc_send(serverchan3_sckey, titleSC3, textSC3, options)            
             if response.get("code") == 0:  # 新版成功返回 code=0
                 log("Server酱3-日志已推送")
             else:
-                log(f"Server酱推送失败: {response.get('message')}")
-                
+                log(f"Server酱推送失败: {response.get('message')}")                
         except Exception as e:
             log(f"Server酱推送异常: {str(e)}")    
 
