@@ -1225,16 +1225,15 @@ def push_summary():
             pass
 
     # Server酱3
-    serverchan3_sckey = os.getenv('SERVERCHAN3_SCKEY')  # 使用新的环境变量名
+    serverchan3_sckey = os.getenv('SERVERCHAN3_SCKEY') 
     if serverchan3_sckey:
         try:
-            # 新版 Server 酱调用方式
-            titleser = title
-            desp = text  
+            textSC3 = "\n\n".join(summary_logs)
+            titleSC3 = title
+            desp = textSC3
             options = {"tags": "嘉立创|签到"}  # 可选参数，根据需求添加
             
-            response = sc_send(serverchan3_sckey, titleser, desp, options)
-            print(response)
+            response = sc_send(serverchan3_sckey, titleSC3, desp, options)
             
             if response.get("code") == 0:  # 新版成功返回 code=0
                 log("Server酱3-日志已推送")
